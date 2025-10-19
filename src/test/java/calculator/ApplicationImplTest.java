@@ -87,4 +87,20 @@ class ApplicationImplTest {
         assertThat(result).isEqualTo(6.0);
     }
 
+    //4. 문자열에서 "//"와 "\n"을 정규식을 통해 가운데 문자를 가져오는 기능 구현(extractBetweenDelimiters())
+    @Test
+    @DisplayName("extractBetweenDelimiters() 함수 생성")
+    void createExtractBetweenDelimiters(){
+        String inputData = "//;\\n1;2;3";
+        app.extractBetweenDelimiters(inputData);
+    }
+
+    @Test
+    @DisplayName("extractBetweenDelimiters()를 통해 커스텀 절단자를 가져올 수 있다.")
+    void parsingCustomDelimiter(){
+        String inputData = "//;\\n1;2;3";
+        String result = app.extractBetweenDelimiters(inputData);
+        assertThat(result).isEqualTo(";");
+
+    }
 }

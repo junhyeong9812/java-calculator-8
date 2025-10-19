@@ -2,6 +2,8 @@ package calculator;
 
 
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Application {
     public static void main(String[] args) {
@@ -37,6 +39,16 @@ public class Application {
         }
 
         return sum;
+    }
+
+    public String extractBetweenDelimiters(String inputData){
+        String result="";
+        Pattern pattern = Pattern.compile("//(.*)\\\\n");
+        Matcher matcher = pattern.matcher(inputData);
+        if(matcher.find()){
+            result = matcher.group(1);
+        }
+        return result;
     }
 
 
