@@ -18,3 +18,12 @@
     -> 해당 배열의 길이만큼 순차적 분리 및 해당 숫자 배열에 대해서 숫자의 순서를 정할 필요성 존재.
 - 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다.
     1. 문자열을 탐색하여 숫자 및 커스텀 키에 대한 유니코드가 아닐 경우 예외처리를 발생시키는 기능
+
+구현 순서 정리:
+1. 문자열에서 ","와 ":"를 파싱할 수 있는 기능 구현(parsingDelimiter())
+2. 파싱한 문자를 기준으로 각 숫자를 각각의 배열로 담을 수 있는 기능(addNumbersToArray())
+3. 배열의 합을 반환하는 기능(sumNumbersInArray())
+4. 문자열에서 "//"와 "\n"을 정규식을 통해 가운데 문자를 가져오는 기능 구현(extractBetweenDilimiters())
+5. parsingDelimiter()를 extractBetweenDilimiters()에서 추출한 연산자와 ",", ":" 연산자를 파싱하여 존재하는 구분자를 배열(DelimiterArray[])에 넣도록 리팩토링
+6. addNumbersToArray()에서 DelimiterArray[]를 통해 해당 값으로 값을 구분하여 배열로 담도록 리팩토링
+7. 사용자가 입력한 값이 연산자 패턴이 아니면서 파싱된 구분자 외의 양수가 아닐 경우 IllegalArgumentException를 발생시키는 구조로 함수 리팩토링
