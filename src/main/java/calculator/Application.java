@@ -52,7 +52,11 @@ public class Application {
     public Double sumNumbersInArray(List<String> numbers){
         Double sum = 0.0;
         for(String number: numbers){
-            sum += Double.parseDouble(number);
+            Double value = Double.parseDouble(number);
+            if (value< 0){
+                throw new IllegalArgumentException("음수는 안됩니다: "+value);
+            }
+            sum += value;
         }
 
         return sum;

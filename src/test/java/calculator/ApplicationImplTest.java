@@ -129,4 +129,16 @@ class ApplicationImplTest {
 
         assertThat(result).isEqualTo(10.0);
     }
+    //7. 사용자가 입력한 값이 연산자 패턴이 아니면서 파싱된 구분자 외의
+    // 양수가 아닐 경우 IllegalArgumentException를 발생시키는 구조로 함수 리팩토링
+    @Test
+    @DisplayName("IllegalArgumentException 발생")
+    void letsIllegalArgumentException(){
+        String inputData = "//;\\n-1,2;3:4";
+
+        assertThatThrownBy(() -> app.calculator(inputData))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("음수는 안됩니다: -1.0");
+
+    }
 }
