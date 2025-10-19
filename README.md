@@ -28,18 +28,14 @@
 6. addNumbersToArray()에서 DelimiterArray[]를 통해 해당 값으로 값을 구분하여 배열로 담도록 리팩토링
 7. 사용자가 입력한 값이 연산자 패턴이 아니면서 파싱된 구분자 외의 양수가 아닐 경우 IllegalArgumentException를 발생시키는 구조로 함수 리팩토링
 
+@Test
+@DisplayName("calculator() 함수 생성")
+void createCalculator(){
+String inputData = "//;\\n1;2;3";
+app.calculator(inputData);
+}
 
-String[] first =new Array<String>();
-String[][] second;
-if(checkString.contains(",")){
-first=checkString.split(",");
-}
-if(checkString.contains(":")){
-for(int i= 0; i<first.length; i ++){
-if(first[i].contains(":")){
-second[i] = first[i].split(":");
-}else{
-second[i][0] = first[i];
-}
-}
-}
+public Double calculator(String inputData){
+
+    }
+

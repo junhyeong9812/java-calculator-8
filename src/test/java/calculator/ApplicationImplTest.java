@@ -103,4 +103,13 @@ class ApplicationImplTest {
         assertThat(result).isEqualTo(";");
 
     }
+
+    // 5. parsingDelimiter()를 extractBetweenDilimiters()에서 추출한 연산자와 ",", ":" 연산자를 파싱하여 존재하는 구분자를 배열(DelimiterArray[])에 넣도록 리팩토링
+    @Test
+    @DisplayName("parsingDelimiter()를 extractBetweenDilimiters()에서 추출한 연산자를 DelimiterArray[]에 추가")
+    void shouldAddCustomDelimiterFromExtractBetweenDelimitersToDelimiterArray(){
+        String inputData = "//;\\n1,2:3;4";
+        Set<String> delimiterArray=app.parsingDelimiter(inputData);
+        assertThat(delimiterArray.size()).isEqualTo(3);
+    }
 }

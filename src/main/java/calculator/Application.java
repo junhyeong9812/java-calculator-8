@@ -12,8 +12,13 @@ public class Application {
 
     };
 
+
     public Set<String> parsingDelimiter(String checkString){
         Set<String> delimiterArray = new HashSet<>();
+        String checkCustomDelimiters = extractBetweenDelimiters(checkString);
+        if(!checkCustomDelimiters.equals("")){
+            delimiterArray.add(checkCustomDelimiters);
+        }
         if(checkString.contains(",")){
             delimiterArray.add(",");
         }
