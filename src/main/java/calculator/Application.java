@@ -4,15 +4,19 @@ package calculator;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import camp.nextstep.edu.missionutils.Console;
 
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-
+        Application application = new Application();
+        String inputData = Console.readLine();
+        int result=application.calculator(inputData);
+        System.out.println("결과 : " + result);
 
     };
 
-    public Double calculator(String inputData){
+    public int calculator(String inputData){
         Set<String> delimiterArray=parsingDelimiter(inputData);
         Pattern pattern = Pattern.compile("//(.*)\\\\n");
         Matcher matcher = pattern.matcher(inputData);
@@ -20,7 +24,7 @@ public class Application {
             inputData = matcher.replaceAll("");
         }
         List<String> numbers = addNumbersToArray(delimiterArray,inputData);
-        Double result = sumNumbersInArray(numbers);
+        int result = sumNumbersInArray(numbers);
         return result;
     }
 
@@ -49,10 +53,10 @@ public class Application {
         return Arrays.asList(numbers);
     }
 
-    public Double sumNumbersInArray(List<String> numbers){
-        Double sum = 0.0;
+    public int sumNumbersInArray(List<String> numbers){
+        int sum = 0;
         for(String number: numbers){
-            Double value = Double.parseDouble(number);
+            int value = Integer.parseInt(number);
             if (value< 0){
                 throw new IllegalArgumentException("음수는 안됩니다: "+value);
             }

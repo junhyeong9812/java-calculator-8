@@ -83,8 +83,8 @@ class ApplicationImplTest {
         numbers.add("1");
         numbers.add("2");
         numbers.add("3");
-        Double result = app.sumNumbersInArray(numbers);
-        assertThat(result).isEqualTo(6.0);
+        int result = app.sumNumbersInArray(numbers);
+        assertThat(result).isEqualTo(6);
     }
 
     //4. 문자열에서 "//"와 "\n"을 정규식을 통해 가운데 문자를 가져오는 기능 구현(extractBetweenDelimiters())
@@ -125,9 +125,9 @@ class ApplicationImplTest {
     @DisplayName("calculator()를 통한 연산 확인")
     void useCalculator(){
         String inputData = "//;\\n1,2;3:4";
-        Double result = app.calculator(inputData);
+        int result = app.calculator(inputData);
 
-        assertThat(result).isEqualTo(10.0);
+        assertThat(result).isEqualTo(10);
     }
     //7. 사용자가 입력한 값이 연산자 패턴이 아니면서 파싱된 구분자 외의
     // 양수가 아닐 경우 IllegalArgumentException를 발생시키는 구조로 함수 리팩토링
@@ -138,7 +138,7 @@ class ApplicationImplTest {
 
         assertThatThrownBy(() -> app.calculator(inputData))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("음수는 안됩니다: -1.0");
+                .hasMessage("음수는 안됩니다: -1");
 
     }
 }
