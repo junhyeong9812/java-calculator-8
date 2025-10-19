@@ -1,8 +1,7 @@
 package calculator;
 
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Application {
     public static void main(String[] args) {
@@ -10,6 +9,7 @@ public class Application {
 
 
     };
+
     public Set<String> parsingDelimiter(String checkString){
         Set<String> delimiterArray = new HashSet<>();
         if(checkString.contains(",")){
@@ -20,6 +20,15 @@ public class Application {
         }
         return delimiterArray;
     };
+
+    public List<String> addNumbersToArray(Set<String> delimiterArray, String inputData){
+        for (String delimiter : delimiterArray){
+            inputData = inputData.replace(delimiter,",");
+        }
+
+        String[] numbers = inputData.split(",");
+        return Arrays.asList(numbers);
+    }
 
 
 }
