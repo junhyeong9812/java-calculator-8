@@ -3,6 +3,7 @@ package calculator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -66,6 +67,24 @@ class ApplicationImplTest {
         assertThat(resultComma).containsExactly("1","2","3");
         assertThat(resultColon).containsExactly("1","2","3");
         assertThat(resultAll).containsExactly("1","2","3");
+    }
+
+    // 3. 배열의 합을 반환하는 기능(sumNumbersInArray())
+    @Test
+    @DisplayName("sumNumbersInArray() 함수 생성")
+    void createsumNumbersInArray(){
+        app.sumNumbersInArray(new ArrayList<>());
+    }
+
+    @Test
+    @DisplayName("sumNumbersInArray()를 통해 배열의 합을 구할 수 있다.")
+    void sumNumbersInArrayTest(){
+        List<String> numbers = new ArrayList<>();
+        numbers.add("1");
+        numbers.add("2");
+        numbers.add("3");
+        Double result = app.sumNumbersInArray(numbers);
+        assertThat(result).isEqualTo(6.0);
     }
 
 }

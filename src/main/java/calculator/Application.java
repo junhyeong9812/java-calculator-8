@@ -30,5 +30,14 @@ public class Application {
         return Arrays.asList(numbers);
     }
 
+    public Double sumNumbersInArray(List<String> numbers){
+        Double sum = 0.0;
+        for(String number: numbers){
+            sum += Double.parseDouble(number);
+        }
+
+        return sum;
+    }
+
 
 }
