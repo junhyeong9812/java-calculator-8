@@ -112,4 +112,21 @@ class ApplicationImplTest {
         Set<String> delimiterArray=app.parsingDelimiter(inputData);
         assertThat(delimiterArray.size()).isEqualTo(3);
     }
+
+    //6. 통합 calculator 함수 생성
+    @Test
+    @DisplayName("calculator() 함수 생성")
+    void createCalculator(){
+        String inputData = "//;\\n1,2;3:4";
+        app.calculator(inputData);
+    }
+
+    @Test
+    @DisplayName("calculator()를 통한 연산 확인")
+    void useCalculator(){
+        String inputData = "//;\\n1,2;3:4";
+        Double result = app.calculator(inputData);
+
+        assertThat(result).isEqualTo(10.0);
+    }
 }

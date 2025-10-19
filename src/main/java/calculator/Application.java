@@ -12,6 +12,18 @@ public class Application {
 
     };
 
+    public Double calculator(String inputData){
+        Set<String> delimiterArray=parsingDelimiter(inputData);
+        Pattern pattern = Pattern.compile("//(.*)\\\\n");
+        Matcher matcher = pattern.matcher(inputData);
+        if(matcher.find()){
+            inputData = matcher.replaceAll("");
+        }
+        List<String> numbers = addNumbersToArray(delimiterArray,inputData);
+        Double result = sumNumbersInArray(numbers);
+        return result;
+    }
+
 
     public Set<String> parsingDelimiter(String checkString){
         Set<String> delimiterArray = new HashSet<>();
@@ -52,6 +64,7 @@ public class Application {
         Matcher matcher = pattern.matcher(inputData);
         if(matcher.find()){
             result = matcher.group(1);
+
         }
         return result;
     }
