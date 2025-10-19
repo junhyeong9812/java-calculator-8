@@ -25,9 +25,9 @@ class ApplicationImplTest {
     @Test
     @DisplayName("문자열을 받았을 때 ','나 ':'의 존재 유무를 배열에 반환")
     void recognizeDelimiter(){
-        Set<String> delimiterArray=app.parsingDelimiter("1,2:3");
-        Set<String> commaDelimiterArray =app.parsingDelimiter("1,2,3");
-        Set<String> colonDelimiterArray =app.parsingDelimiter("1:2:3");
+        Set<String> delimiterArray = app.parsingDelimiter("1,2:3");
+        Set<String> commaDelimiterArray = app.parsingDelimiter("1,2,3");
+        Set<String> colonDelimiterArray = app.parsingDelimiter("1:2:3");
 
         assertThat(delimiterArray.size()).isEqualTo(2);
         assertThat(commaDelimiterArray.size()).isEqualTo(1);
@@ -129,6 +129,7 @@ class ApplicationImplTest {
 
         assertThat(result).isEqualTo(10);
     }
+
     //7. 사용자가 입력한 값이 연산자 패턴이 아니면서 파싱된 구분자 외의
     // 양수가 아닐 경우 IllegalArgumentException를 발생시키는 구조로 함수 리팩토링
     @Test
