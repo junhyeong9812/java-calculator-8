@@ -14,7 +14,7 @@ public class Application {
         int result=application.calculator(inputData);
         System.out.println("결과 : " + result);
 
-    };
+    }
 
     public int calculator(String inputData){
         Set<String> delimiterArray=parsingDelimiter(inputData);
@@ -24,15 +24,15 @@ public class Application {
             inputData = matcher.replaceAll("");
         }
         List<String> numbers = addNumbersToArray(delimiterArray,inputData);
-        int result = sumNumbersInArray(numbers);
-        return result;
+        return sumNumbersInArray(numbers);
+
     }
 
 
     public Set<String> parsingDelimiter(String checkString){
         Set<String> delimiterArray = new HashSet<>();
         String checkCustomDelimiters = extractBetweenDelimiters(checkString);
-        if(!checkCustomDelimiters.equals("")){
+        if(!checkCustomDelimiters.isEmpty()){
             delimiterArray.add(checkCustomDelimiters);
         }
         if(checkString.contains(",")){
@@ -42,7 +42,7 @@ public class Application {
             delimiterArray.add(":");
         }
         return delimiterArray;
-    };
+    }
 
     public List<String> addNumbersToArray(Set<String> delimiterArray, String inputData){
         for (String delimiter : delimiterArray){
